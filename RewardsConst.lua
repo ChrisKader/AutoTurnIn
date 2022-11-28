@@ -3,44 +3,42 @@ ptable.CONST = {}
 local C = ptable.CONST
 
 -- Updated for 7.0.3
+-- Enum.ItemClass / Enum.ItemWeaponSubclass / Enum.ItemArmorSubclass / Enum.ItemGemSubclass
 C.armor, C.weapon = {}, {}
 for k = 0, 20 do
-	C.weapon[k+1] = GetItemSubClassInfo(LE_ITEM_CLASS_WEAPON,k)
+	C.weapon[k] = GetItemSubClassInfo(Enum.ItemClass.Weapon,k)
 end
-for k = 0, 11 do
-	C.armor[k+1] = GetItemSubClassInfo(LE_ITEM_CLASS_ARMOR,k)
+for k = 1, 6 do
+	C.armor[k] = GetItemSubClassInfo(Enum.ItemClass.Armor,k)
 end
 
-C.WEAPONLABEL = GetItemClassInfo(LE_ITEM_CLASS_WEAPON)
-C.ARMORLABEL = GetItemClassInfo(LE_ITEM_CLASS_ARMOR)
+C.WEAPONLABEL = GetItemClassInfo(Enum.ItemClass.Weapon)
+C.ARMORLABEL = GetItemClassInfo(Enum.ItemClass.Armor)
 C.JEWELRY = {['INVTYPE_FINGER']='', ['INVTYPE_NECK']=''}
 
 -- Most of the constants are never used but it's convinient to have them here as a reminder and shortcut
 C.ITEMS = {
-	['One-Handed Axes'] = C.weapon[1],
-	['Two-Handed Axes'] = C.weapon[2],
-	['Bows'] = C.weapon[3],
-	['Guns'] = C.weapon[4],
-	['One-Handed Maces'] = C.weapon[5],
-	['Two-Handed Maces'] = C.weapon[6],
-	['Polearms'] = C.weapon[7],
-	['One-Handed Swords'] = C.weapon[8],
-	['Two-Handed Swords'] = C.weapon[9],
-	['Staves'] = C.weapon[10],
-	['Fist Weapons'] = C.weapon[11],
-	--['Miscellaneous'] = select(12, weapon)
-	['Daggers'] = C.weapon[13],
-	['Thrown'] = C.weapon[14],
-	['Crossbows'] = C.weapon[15],
-	['Wands'] = C.weapon[16],
-	--['Fishing Pole'] = select(17, weapon)
-	-- armor
-	--['Miscellaneous'] = C.armor[1]
-	['Cloth'] = C.armor[2],
-	['Leather'] = C.armor[3],
-	['Mail'] = C.armor[4],
-	['Plate'] = C.armor[5],
-	['Shields'] = C.armor[7], -- from 5.4 '6' is a cosmetic
+	['One-Handed Axes']   = C.weapon[0],
+	['Two-Handed Axes']   = C.weapon[1],
+	['Bows'] 			  = C.weapon[2],
+	['Guns'] 			  = C.weapon[3],
+	['One-Handed Maces']  = C.weapon[4],
+	['Two-Handed Maces']  = C.weapon[5],
+	['Polearms'] 		  = C.weapon[6],
+	['One-Handed Swords'] = C.weapon[7],
+	['Two-Handed Swords'] = C.weapon[8],
+	['Warglaive'] 		  = C.weapon[9],
+	['Staff'] 			  = C.weapon[10],
+	['Daggers'] 		  = C.weapon[15],
+	['Crossbows'] 		  = C.weapon[18],
+	
+	--[[ armor  ]]
+
+	['Cloth'] = C.armor[1],
+	['Leather'] = C.armor[2],
+	['Mail'] = C.armor[3],
+	['Plate'] = C.armor[4],
+	['Shields'] = C.armor[6], -- from 5.4 '6' is a cosmetic
 	--[[3rd slot
 	['Librams'] = C.armor[7],
 	['Idols'] = C.armor[8],
